@@ -1,0 +1,27 @@
+package css
+version = 0.1.0
+authors = "stefan-hoeck"
+license = "BSD-3"
+brief   = "A DSL for writing CSS rules in Idris"
+
+depends = literal
+
+sourcedir = "src"
+modules   = Text.CSS
+          , Text.CSS.Angle
+          , Text.CSS.Color
+          , Text.CSS.Declaration
+          , Text.CSS.Dir
+          , Text.CSS.Flexbox
+          , Text.CSS.Gradient
+          , Text.CSS.Grid
+          , Text.CSS.Length
+          , Text.CSS.ListStyleType
+          , Text.CSS.Percentage
+          , Text.CSS.Property
+          , Text.CSS.Rule
+          , Text.CSS.Selector
+          , Text.CSS.Cursor
+
+          , Text.HTML.Ref
+          , Text.HTML.Tag
