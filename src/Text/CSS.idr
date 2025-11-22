@@ -2,6 +2,7 @@ module Text.CSS
 
 import public Data.Refined
 import public Text.CSS.Angle
+import public Text.CSS.Class
 import public Text.CSS.Color
 import public Text.CSS.Dir
 import public Text.CSS.Declaration
