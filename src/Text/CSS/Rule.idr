@@ -1,6 +1,7 @@
 module Text.CSS.Rule
 
 import Data.String
+import Text.CSS.Class
 import Text.CSS.Declaration
 import Text.CSS.Selector
 import Text.HTML.Ref
@@ -25,11 +26,11 @@ sel : Selector -> List Declaration -> Rule n
 sel s = Sel [s]
 
 export %inline
-class : String -> List Declaration -> Rule n
+class : Class -> List Declaration -> Rule n
 class s = sel (class s)
 
 export
-classes : List String -> List Declaration -> Rule n
+classes : List Class -> List Declaration -> Rule n
 classes = sel . classes
 
 export %inline

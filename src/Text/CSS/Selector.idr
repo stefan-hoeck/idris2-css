@@ -2,6 +2,7 @@ module Text.CSS.Selector
 
 import Data.List
 import Data.String
+import Text.CSS.Class
 import Text.CSS.Property
 import Text.HTML.Tag
 
@@ -25,7 +26,7 @@ public export
 data Selector : Type where
   Star    : Selector
   Id      : String -> Selector
-  Class   : String -> Selector
+  Class   : Class -> Selector
   Elem    : {str : _} -> (0 tag : HTMLTag str) -> Selector
   Complex : Selector -> Combinator -> Selector -> Selector
   Nil     : Selector
@@ -212,11 +213,11 @@ Interpolation Selector where
   interpolate Selection                   = "::selection"
 
 export %inline
-class : String -> Selector
+class : Class -> Selector
 class = Class
 
 export
-classes : List String -> Selector
+classes : List Class -> Selector
 classes []        = []
 classes (x :: xs) = class x :: classes xs
 

@@ -9,6 +9,7 @@ depends = literal
 sourcedir = "src"
 modules   = Text.CSS
           , Text.CSS.Angle
+          , Text.CSS.Class
           , Text.CSS.Color
           , Text.CSS.Declaration
           , Text.CSS.Dir
