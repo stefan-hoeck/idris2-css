@@ -15,3 +15,7 @@ record Class where
 
 export %inline
 Interpolation Class where interpolate = value
+
+public export
+0 Classes : Type
+Classes = List Class
