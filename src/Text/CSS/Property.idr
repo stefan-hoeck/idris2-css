@@ -44,6 +44,7 @@ namespace Display
           -> (area    : Vect (S m) (Vect (S n) a))
           -> Display
 
+  export
   showTag : Show a => a -> String
   showTag v =
     case show v of
