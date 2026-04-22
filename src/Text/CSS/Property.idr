@@ -33,24 +33,31 @@ namespace Direction
 
 namespace Display
   public export
-  interface AreaTag a where
-    showTag : a -> String
-
-  public export
   data Display : Type where
     Flex  : Display
     Grid  : Display
     Area  :  {0 n,m : Nat}
           -> {0 a : Type}
-          -> AreaTag a
-          => (rows    : Vect (S m) GridValue)
+          -> {auto as : Show a}
+          -> (rows    : Vect (S m) GridValue)
           -> (columns : Vect (S n) GridValue)
           -> (area    : Vect (S m) (Vect (S n) a))
           -> Display
 
+  showTag : Show a => a -> String
+  showTag v =
+    case show v of
+      "Dot" => "."
+      s     => s
+
+  col : Show a => Vect (S n) a -> String
+  col vs =
+    let s := concat . intersperse " " . map showTag $ toList vs
+     in #""\#{s}""#
+
   export
   renderArea :
-       {auto _ : AreaTag a}
+       {auto _ : Show a}
     -> Vect (S m) GridValue
     -> Vect (S n) GridValue
     -> Vect (S m) (Vect (S n) a)
@@ -60,12 +67,6 @@ namespace Display
         csStr := "grid-template-columns: \{toList cs}"
         aStr  := fastConcat . intersperse " " . map col $ toList as
      in "display: grid; \{rsStr}; \{csStr}; grid-template-areas: \{aStr}"
-
-    where
-      col : Vect (S n) a -> String
-      col vs =
-        let str := concat . intersperse " " . map showTag $ toList vs
-         in #""\#{str}""#
 
 namespace FlexBasis
   public export
