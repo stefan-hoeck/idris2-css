@@ -31,3 +31,19 @@ em = cast . Em
 export %inline
 rem : Cast Length a => Double -> a
 rem = cast . Rem
+
+export %inline
+(.pt) : Cast Length a => Bits16 -> a
+(.pt) = pt
+
+export %inline
+(.px) : Cast Length a => Bits16 -> a
+(.px) = px
+
+export %inline
+(.em) : Cast Length a => Double -> a
+(.em) = em
+
+export %inline
+(.rem) : Cast Length a => Double -> a
+(.rem) = rem
