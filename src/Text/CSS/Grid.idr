@@ -18,6 +18,10 @@ export %inline
 fr : Cast Flex a => Bits16 -> a
 fr = cast . MkFlex
 
+export %inline
+(.fr) : Cast Flex a => Bits16 -> a
+(.fr) = fr
+
 export
 Interpolation Flex where
   interpolate f = "\{show f.value}fr"

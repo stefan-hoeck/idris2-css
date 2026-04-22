@@ -154,7 +154,7 @@ fontWeight : FontWeight -> Declaration
 fontWeight = decl "font-weight"
 
 export %inline
-gridArea : AreaTag a => a -> Declaration
+gridArea : Show a => a -> Declaration
 gridArea = Decl "grid-area" . showTag
 
 export %inline
