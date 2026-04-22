@@ -31,3 +31,19 @@ grad = cast . Grad
 export %inline
 turn : Cast Angle a => Double -> a
 turn = cast . Turn
+
+export %inline
+(.deg) : Cast Angle a => Double -> a
+(.deg) = deg
+
+export %inline
+(.rad) : Cast Angle a => Double -> a
+(.rad) = rad
+
+export %inline
+(.grad) : Cast Angle a => Double -> a
+(.grad) = grad
+
+export %inline
+(.turn) : Cast Angle a => Double -> a
+(.turn) = turn

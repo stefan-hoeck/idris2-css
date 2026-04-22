@@ -39,3 +39,11 @@ perc :
   -> {auto 0 prf : Holds IsPercentage v}
   -> a
 perc v = cast $ MkPercentage v
+
+export %inline
+(.perc) :
+     {auto _ : Cast Percentage a}
+  -> (v : Double)
+  -> {auto 0 prf : Holds IsPercentage v}
+  -> a
+(.perc) = perc
