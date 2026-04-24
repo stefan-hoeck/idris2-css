@@ -118,6 +118,11 @@ export %inline
 display : Display -> Declaration
 display = Display
 
+export
+fill : Maybe Color -> Declaration
+fill Nothing  = decl "fill" "none"
+fill (Just c) = decl "fill" c
+
 export %inline
 flex : String -> Declaration
 flex = Decl "flex"
@@ -229,6 +234,15 @@ padding = dirDecl "padding" interpolate
 export %inline
 rowGap : Length -> Declaration
 rowGap = decl "row-gap"
+
+export
+stroke : Maybe Color -> Declaration
+stroke Nothing  = decl "stroke" "none"
+stroke (Just c) = decl "stroke" c
+
+export %inline
+strokeWidth : Width -> Declaration
+strokeWidth = decl "stroke-width"
 
 export %inline
 textAlign : TextAlign -> Declaration
