@@ -196,6 +196,10 @@ justifySelf : FlexJustify -> Declaration
 justifySelf = decl "justify-self"
 
 export %inline
+lineHeight : LineHeight -> Declaration
+lineHeight = decl "line-height"
+
+export %inline
 listStyleType : ListStyleType -> Declaration
 listStyleType = decl "list-style-type"
 
