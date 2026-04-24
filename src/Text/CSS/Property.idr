@@ -250,14 +250,14 @@ namespace LineHeight
   public export
   data LineHeight : Type where
     Normal : LineHeight
-    LHN    : Nat -> LineHeight
+    LHD    : Double -> LineHeight
     LHL    : Length -> LineHeight
     LHP    : Percentage -> LineHeight
 
   export
   Interpolation LineHeight where
     interpolate Normal  = "normal"
-    interpolate (LHN x) = show x
+    interpolate (LHD x) = show x
     interpolate (LHL x) = interpolate x
     interpolate (LHP x) = interpolate x
 
@@ -271,7 +271,11 @@ namespace LineHeight
 
   export %inline
   fromInteger : Integer -> LineHeight
-  fromInteger = LHN . cast
+  fromInteger = LHD . cast
+
+  export %inline
+  FromDouble LineHeight where
+    fromDouble = LHD
 
 namespace Overflow
 
