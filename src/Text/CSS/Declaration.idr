@@ -21,6 +21,7 @@ data Declaration : Type where
 export
 Interpolation Declaration where
   interpolate (Decl p v) = "\{p}: \{v};"
+  interpolate (Display None) = "display: none;"
   interpolate (Display Flex) = "display: flex;"
   interpolate (Display Grid) = "display: grid;"
   interpolate (Display $ Area rs cs a) = "\{renderArea rs cs a};"

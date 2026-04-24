@@ -34,6 +34,7 @@ namespace Direction
 namespace Display
   public export
   data Display : Type where
+    None  : Display
     Flex  : Display
     Grid  : Display
     Area  :  {0 n,m : Nat}
