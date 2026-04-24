@@ -151,6 +151,10 @@ fontSize : FontSize -> Declaration
 fontSize = decl "font-size"
 
 export %inline
+fontStyle : FontStyle -> Declaration
+fontStyle = decl "font-style"
+
+export %inline
 fontWeight : FontWeight -> Declaration
 fontWeight = decl "font-weight"
 
