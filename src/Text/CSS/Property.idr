@@ -246,6 +246,33 @@ namespace BorderWidth
   Cast Length BorderWidth where
     cast = BL
 
+namespace LineHeight
+  public export
+  data LineHeight : Type where
+    Normal : LineHeight
+    LHN    : Nat -> LineHeight
+    LHL    : Length -> LineHeight
+    LHP    : Percentage -> LineHeight
+
+  export
+  Interpolation LineHeight where
+    interpolate Normal  = "normal"
+    interpolate (LHN x) = show x
+    interpolate (LHL x) = interpolate x
+    interpolate (LHP x) = interpolate x
+
+  export %inline
+  Cast Length LineHeight where
+    cast = LHL
+
+  export %inline
+  Cast Percentage LineHeight where
+    cast = LHP
+
+  export %inline
+  fromInteger : Integer -> LineHeight
+  fromInteger = LHN . cast
+
 namespace Overflow
 
   ||| The `overflow-x` and `overflow-y` CSS properties set
