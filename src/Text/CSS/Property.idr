@@ -3,6 +3,7 @@ module Text.CSS.Property
 import Data.List
 import Data.String
 import Data.Vect
+import Text.CSS.Angle
 import Text.CSS.Color
 import Text.CSS.Dir
 import Text.CSS.Flexbox
@@ -156,6 +157,22 @@ namespace FontWeight
     interpolate FW700   = "700"
     interpolate FW800   = "800"
     interpolate FW900   = "900"
+
+namespace FontStyle
+  public export
+  data FontStyle : Type where
+    Normal   : FontStyle
+    Italic   : FontStyle
+    Oblique_ : FontStyle
+    Oblique  : Angle -> FontStyle
+
+  export
+  Interpolation FontStyle where
+    interpolate Normal      = "normal"
+    interpolate Italic      = "italic"
+    interpolate Oblique_    = "oblique"
+    interpolate (Oblique x) = "oblique \{x}"
+
 
 namespace BorderRadius
   public export
