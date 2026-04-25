@@ -63,6 +63,10 @@ alignSelf : FlexAlign -> Declaration
 alignSelf = decl "align-self"
 
 export %inline
+aspectRatio : Ratio -> Declaration
+aspectRatio = decl "aspect-ratio"
+
+export %inline
 backgroundColor : Color -> Declaration
 backgroundColor = decl "background-color"
 
