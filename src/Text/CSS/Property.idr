@@ -317,6 +317,19 @@ namespace Overflow
     interpolate Scroll  = "scroll"
     interpolate Auto    = "auto"
 
+namespace Ratio
+  public export
+  data Ratio : Type where
+    Auto : Ratio
+    RD   : Double -> Ratio
+    RDD  : Double -> Double -> Ratio
+
+  export
+  Interpolation Ratio where
+    interpolate Auto      = "auto"
+    interpolate (RD x)    = show x
+    interpolate (RDD x y) = "\{show x}/\{show y}"
+
 namespace TextAlign
   public export
   data TextAlign : Type where
