@@ -1,7 +1,8 @@
 module Text.CSS.Cursor
 
-%default total
+import Text.CSS.Class
 
+%default total
 
 --------------------------------------------------------------------------------
 --          Cursor Types
@@ -44,11 +45,12 @@ data Cursor : Type where
   SeResize    : Cursor
   SwResize    : Cursor
   Text        : Cursor
-  Url         : (url : String) -> (xOffset,yOffset : Nat) -> Cursor
   WResize     : Cursor
   Wait        : Cursor
   ZoomIn      : Cursor
   ZoomOut     : Cursor
+  URL         : String -> (dx,dy : Double) -> Cursor
+  URL_        : String -> Cursor
 
 export
 Interpolation Cursor where
@@ -83,8 +85,9 @@ Interpolation Cursor where
   interpolate SeResize      = "se-resize"
   interpolate SwResize      = "sw-resize"
   interpolate Text          = "text"
-  interpolate (Url url x y) = "url(\{show url}) \{show x} \{show y}, auto"
   interpolate WResize       = "w-resize"
   interpolate Wait          = "wait"
   interpolate ZoomIn        = "zoom-in"
   interpolate ZoomOut       = "zoom-out"
+  interpolate (URL_ u)      = "url(\{quote u})"
+  interpolate (URL u x y)   = "url(\{quote u}) \{show x} \{show y}"

@@ -3,6 +3,7 @@ module Text.CSS.Declaration
 import Data.List
 import Data.Vect
 import Text.CSS.Color
+import Text.CSS.Cursor
 import Text.CSS.Dir
 import Text.CSS.Flexbox
 import Text.CSS.Gradient
@@ -114,6 +115,10 @@ color = decl "color"
 export %inline
 columnGap : Length -> Declaration
 columnGap = decl "column-gap"
+
+export
+cursor : List Cursor -> Declaration
+cursor = decl "cursor" . fastConcat . intersperse "," . map interpolate
 
 export %inline
 direction : Direction -> Declaration
