@@ -124,7 +124,7 @@ display : Display -> Declaration
 display = Display
 
 export %inline
-gridArea :
+area :
      {0 n,m : Nat}
   -> {0 a : Type}
   -> {auto as : Show a}
@@ -132,7 +132,7 @@ gridArea :
   -> (columns : Vect (S n) GridValue)
   -> (area    : Vect (S m) (Vect (S n) a))
   -> Declaration
-gridArea rs cs a = display (Area rs cs a)
+area rs cs a = display (Area rs cs a)
 
 export
 fill : Maybe Color -> Declaration
