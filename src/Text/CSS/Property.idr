@@ -330,6 +330,14 @@ namespace Ratio
     interpolate (RD x)    = show x
     interpolate (RDD x y) = "\{show x}/\{show y}"
 
+  export %inline
+  fromInteger : Integer -> Ratio
+  fromInteger = RD . cast
+
+  export %inline
+  FromDouble Ratio where
+    fromDouble = RD
+
 namespace TextAlign
   public export
   data TextAlign : Type where
