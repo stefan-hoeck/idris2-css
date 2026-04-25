@@ -23,11 +23,33 @@ Interpolation Combinator where
   interpolate AdjacentSibling = "+"
 
 public export
+data AttributeValue : Type where
+  Set      : AttributeValue
+  Has      : String -> AttributeValue
+  Equals   : String -> AttributeValue
+  Contains : String -> AttributeValue
+  Prefix   : String -> AttributeValue
+  Suffix   : String -> AttributeValue
+
+quote : String -> String
+quote s = #""\{s}""#
+
+export
+Interpolation AttributeValue where
+  interpolate Set          = ""
+  interpolate (Has s)      = "~=\{quote s}"
+  interpolate (Equals s)   = "=\{quote s}"
+  interpolate (Contains s) = "*=\{quote s}"
+  interpolate (Prefix s)   = "^=\{quote s}"
+  interpolate (Suffix s)   = "$=\{quote s}"
+
+public export
 data Selector : Type where
   Star    : Selector
   Id      : String -> Selector
   Class   : Class -> Selector
   Elem    : {str : _} -> (0 tag : HTMLTag str) -> Selector
+  Attr    : String -> AttributeValue -> Selector
   Complex : Selector -> Combinator -> Selector -> Selector
   Nil     : Selector
   (::)    : Selector -> Selector -> Selector
@@ -148,6 +170,7 @@ Interpolation Selector where
   interpolate (Id s)                      = "#\{s}"
   interpolate (Class s)                   = ".\{s}"
   interpolate (Elem {str} _)              = str
+  interpolate (Attr s v)                  = "[\{s}\{v}]"
   interpolate []                          = ""
   interpolate (h::t)                      = interpolate h ++ interpolate t
   interpolate (Complex  s1 Descendant s2) = "\{s1} \{s2}"
@@ -224,6 +247,10 @@ classes (x :: xs) = class x :: classes xs
 export %inline
 elem : {str : _} -> (0 tpe : HTMLTag str) -> Selector
 elem = Elem
+
+export
+attribute : String -> Selector
+attribute s = Attr s Set
 
 export %inline
 id : String -> Selector
