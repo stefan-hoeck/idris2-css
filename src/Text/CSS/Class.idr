@@ -5,6 +5,10 @@ import Derive.Prelude
 %default total
 %language ElabReflection
 
+export
+quote : String -> String
+quote s = #""\{s}""#
+
 ||| A CSS class
 public export
 record Class where

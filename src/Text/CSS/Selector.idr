@@ -31,9 +31,6 @@ data AttributeValue : Type where
   Prefix   : String -> AttributeValue
   Suffix   : String -> AttributeValue
 
-quote : String -> String
-quote s = #""\{s}""#
-
 export
 Interpolation AttributeValue where
   interpolate Set          = ""
