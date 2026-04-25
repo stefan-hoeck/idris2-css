@@ -1,6 +1,7 @@
 module Text.CSS.Declaration
 
 import Data.List
+import Data.Vect
 import Text.CSS.Color
 import Text.CSS.Dir
 import Text.CSS.Flexbox
@@ -121,6 +122,17 @@ direction = decl "direction"
 export %inline
 display : Display -> Declaration
 display = Display
+
+export %inline
+area :
+     {0 n,m : Nat}
+  -> {0 a : Type}
+  -> {auto as : Show a}
+  -> (rows    : Vect (S m) GridValue)
+  -> (columns : Vect (S n) GridValue)
+  -> (area    : Vect (S m) (Vect (S n) a))
+  -> Declaration
+area rs cs a = display (Area rs cs a)
 
 export
 fill : Maybe Color -> Declaration
