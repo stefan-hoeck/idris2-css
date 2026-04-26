@@ -245,6 +245,18 @@ minWidth : Width -> Declaration
 minWidth = decl "min-width"
 
 export %inline
+outlineColor : Color -> Declaration
+outlineColor = decl "outline-color"
+
+export %inline
+outlineStyle : BorderStyle -> Declaration
+outlineStyle = decl "outline-style"
+
+export %inline
+outlineWidth : BorderWidth -> Declaration
+outlineWidth = decl "outline-width"
+
+export %inline
 overflowX : Overflow -> Declaration
 overflowX = decl "overflow-x"
 
