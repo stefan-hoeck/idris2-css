@@ -246,6 +246,32 @@ namespace BorderWidth
   Cast Length BorderWidth where
     cast = BL
 
+namespace Linecap
+  public export
+  data Linecap : Type where
+    Butt   : Linecap
+    Round  : Linecap
+    Square : Linecap
+
+  export
+  Interpolation Linecap where
+    interpolate Butt   = "butt"
+    interpolate Round  = "round"
+    interpolate Square = "square"
+
+namespace Linejoin
+  public export
+  data Linejoin : Type where
+    Bevel : Linejoin
+    Miter : Linejoin
+    Round : Linejoin
+
+  export
+  Interpolation Linejoin where
+    interpolate Bevel = "bevel"
+    interpolate Miter = "miter"
+    interpolate Round = "round"
+
 namespace LineHeight
   public export
   data LineHeight : Type where

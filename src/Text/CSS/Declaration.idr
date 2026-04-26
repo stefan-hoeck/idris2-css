@@ -282,6 +282,18 @@ strokeWidth : Width -> Declaration
 strokeWidth = decl "stroke-width"
 
 export %inline
+strokeLinecap : Linecap -> Declaration
+strokeLinecap = decl "stroke-linecap"
+
+export %inline
+strokeLinejoin : Linejoin -> Declaration
+strokeLinejoin = decl "stroke-linejoin"
+
+export %inline
+strokeMiterlimit : Double -> Declaration
+strokeMiterlimit = decl "stroke-miterlimit" . show
+
+export %inline
 textAlign : TextAlign -> Declaration
 textAlign = decl "text-align"
 
