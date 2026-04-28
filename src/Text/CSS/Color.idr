@@ -14,6 +14,7 @@ public export
 data Color : Type where
   RGBA : (red,green,blue : Bits8) -> (transparency : Percentage) -> Color
   HSLA : (hue : Double) -> (sat,light,transparency : Percentage) -> Color
+  Current : Color
 
 public export %inline
 rgb : (red,green,blue : Bits8) -> Color
@@ -31,6 +32,7 @@ export
 Interpolation Color where
   interpolate (RGBA r g b a) = "rgba(\{show r},\{show g},\{show b},\{a})"
   interpolate (HSLA h s l a) = "hsla(\{show h},\{s},\{l},\{a})"
+  interpolate Current        = "currentcolor"
 
 export
 Show Color where show = interpolate
