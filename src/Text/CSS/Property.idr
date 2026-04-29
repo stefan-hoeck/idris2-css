@@ -23,6 +23,27 @@ namespace BoxSizing
     interpolate BorderBox  = "border-box"
     interpolate ContentBox = "content-box"
 
+namespace ContainerType
+  public export
+  data ContainerType : Type where
+    Normal                : ContainerType
+    Size                  : ContainerType
+    InlineSize            : ContainerType
+    ScrollState           : ContainerType
+    ScrollStateSize       : ContainerType
+    ScrollStateInlineSize : ContainerType
+    Anchored              : ContainerType
+
+  export
+  Interpolation ContainerType where
+    interpolate Normal                = "normal"
+    interpolate Size                  = "size"
+    interpolate InlineSize            = "inline-size"
+    interpolate ScrollState           = "scroll-state"
+    interpolate ScrollStateSize       = "scroll-state size"
+    interpolate ScrollStateInlineSize = "scroll-state inline-size"
+    interpolate Anchored              = "anchor"
+
 namespace Direction
   public export
   data Direction = LTR | RTL

@@ -116,6 +116,10 @@ export %inline
 columnGap : Length -> Declaration
 columnGap = decl "column-gap"
 
+export %inline
+containerType : ContainerType -> Declaration
+containerType = decl "container-type"
+
 export
 cursor : List Cursor -> Declaration
 cursor = decl "cursor" . fastConcat . intersperse "," . map interpolate
