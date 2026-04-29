@@ -21,6 +21,11 @@ data Rule : (n : Nat) -> Type where
     -> (rules : List $ Rule 0)
     -> Rule 1
 
+  Container :
+       (query : String)
+    -> (rules : List $ Rule 0)
+    -> Rule 1
+
 export %inline
 sel : Selector -> List Declaration -> Rule n
 sel s = Sel [s]
@@ -57,3 +62,4 @@ Interpolation (Rule n) where
         ss  := fastConcat . intersperse ", " $ map interpolate s
      in "\{ss}{\{dss}}"
   interpolate (Media q rs)  = "@media (\{q}){\{unlines $ map interpolate rs}}"
+  interpolate (Container q rs) = "@container (\{q}){\{unlines $ map interpolate rs}}"
