@@ -7,7 +7,7 @@ import Derive.Prelude
 
 export
 quote : String -> String
-quote s = #""\{s}""#
+quote s = #""\#{s}""#
 
 ||| A CSS class
 public export
