@@ -63,3 +63,13 @@ Interpolation (Rule n) where
      in "\{ss}{\{dss}}"
   interpolate (Media q rs)  = "@media (\{q}){\{unlines $ map interpolate rs}}"
   interpolate (Container q rs) = "@container (\{q}){\{unlines $ map interpolate rs}}"
+
+||| Convenience alias for `List (Rule 0)`
+public export
+0 Rules0 : Type
+Rules0 = List (Rule 0)
+
+||| Convenience alias for `List (Rule 1)`
+public export
+0 Rules : Type
+Rules = List (Rule 1)
