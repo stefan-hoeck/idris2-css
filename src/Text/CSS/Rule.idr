@@ -13,7 +13,7 @@ public export
 data Rule : (n : Nat) -> Type where
   Sel :
        (selectors : List Selector)
-    -> (decls     : List Declaration)
+    -> (decls     : Declarations)
     -> Rule n
 
   Media :
@@ -27,32 +27,32 @@ data Rule : (n : Nat) -> Type where
     -> Rule 1
 
 export %inline
-sel : Selector -> List Declaration -> Rule n
+sel : Selector -> Declarations -> Rule n
 sel s = Sel [s]
 
 export %inline
-class : Class -> List Declaration -> Rule n
+class : Class -> Declarations -> Rule n
 class s = sel (class s)
 
 export
-classes : List Class -> List Declaration -> Rule n
+classes : List Class -> Declarations -> Rule n
 classes = sel . classes
 
 export %inline
-elem : {str : _} -> (0 tag : HTMLTag str) -> List Declaration -> Rule n
+elem : {str : _} -> (0 tag : HTMLTag str) -> Declarations -> Rule n
 elem v = sel $ elem v
 
 export %inline
-id : String -> List Declaration -> Rule n
+id : String -> Declarations -> Rule n
 id = sel . id
 
 export %inline
-star : List Declaration -> Rule n
+star : Declarations -> Rule n
 star = sel Star
 
 ||| Uses an element ref as an ID selector
 export %inline
-ref : {0 t : HTMLTag s} -> Ref t -> List Declaration -> Rule n
+ref : {0 t : HTMLTag s} -> Ref t -> Declarations -> Rule n
 ref (Id i) = id i
 
 export

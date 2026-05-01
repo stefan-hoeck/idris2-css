@@ -20,6 +20,10 @@ data Declaration : Type where
   Decl : (property, value : String) -> Declaration
   Display : Display -> Declaration
 
+public export
+0 Declarations : Type
+Declarations = List Declaration
+
 export
 Interpolation Declaration where
   interpolate (Decl p v) = "\{p}: \{v};"
@@ -332,3 +336,42 @@ width = decl "width"
 export %inline
 whitespace : WhiteSpace -> Declaration
 whitespace = decl "white-space"
+
+--------------------------------------------------------------------------------
+-- General Utilities
+--------------------------------------------------------------------------------
+
+export
+noPadding : Declaration
+noPadding = padding (All 0.px)
+
+export
+noMargin : Declaration
+noMargin = padding (All 0.px)
+
+export
+flex1 : Declaration
+flex1 = flex "1"
+
+export
+flex2 : Declaration
+flex2 = flex "2"
+
+export
+flex3 : Declaration
+flex3 = flex "3"
+
+export
+flex4 : Declaration
+flex4 = flex "4"
+
+||| Solid, narrow border of the given color.
+export
+solidBorder : BorderWidth -> Color -> Declarations
+solidBorder bw c =
+  [borderStyle (All Solid), borderWidth  (All bw), borderColor (All c)]
+
+||| `solidBorder` with rounded corners using the given corner radius.
+export
+roundedBorder : BorderWidth -> Color -> BorderRadius -> Declarations
+roundedBorder bw c r = borderRadius r :: solidBorder bw c
