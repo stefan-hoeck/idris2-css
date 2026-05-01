@@ -160,6 +160,13 @@ data Selector : Type where
   Placeholder : Selector
   Selection : Selector
 
+export %inline
+(>) : Selector -> Selector -> Selector
+p > c = Complex p Child c
+
+export %inline
+(+) : Selector -> Selector -> Selector
+c1 + c2 = Complex c1 AdjacentSibling c2
 
 export
 Interpolation Selector where
