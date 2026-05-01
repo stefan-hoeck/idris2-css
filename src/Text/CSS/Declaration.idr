@@ -347,7 +347,11 @@ noPadding = padding (All 0.px)
 
 export
 noMargin : Declaration
-noMargin = padding (All 0.px)
+noMargin = margin (All 0.px)
+
+export
+noflex : Declaration
+noflex = flex "0 0 auto"
 
 export
 flex1 : Declaration
