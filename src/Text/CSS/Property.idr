@@ -70,8 +70,8 @@ namespace Display
   export
   showTag : Show a => a -> String
   showTag v =
-    case show v of
-      "Dot" => "."
+    case toLower $ show v of
+      "dot" => "."
       s     => s
 
   col : Show a => Vect (S n) a -> String
