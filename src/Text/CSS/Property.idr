@@ -57,6 +57,7 @@ namespace Display
   public export
   data Display : Type where
     None  : Display
+    InlineBlock  : Display
     Flex  : Display
     Grid  : Display
     Area  :  {0 n,m : Nat}
