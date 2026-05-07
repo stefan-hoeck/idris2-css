@@ -105,6 +105,8 @@ data Selector : Type where
   Link : Selector
   ||| Matches links pointing to pages that are in the same site as the current document.
   LocalLink : Selector
+  ||| Matches elements in a modal state.
+  Modal : Selector
   |||Matches elements from a list of siblings — the siblings are matched by a formula of the form an+b (e.g. 2n + 1 would match elements 1, 3, 5, 7, etc. All the odd ones.)
   NthChild : String -> Selector
   |||Matches elements from a list of siblings — the siblings are matched by a formula of the form an+b (e.g. 2n + 1 would match elements 1, 3, 5, 7, etc. All the odd ones.)
@@ -206,6 +208,7 @@ Interpolation Selector where
   interpolate Left                        = ":left"
   interpolate Link                        = ":link"
   interpolate LocalLink                   = ":local-link"
+  interpolate Modal                       = ":modal"
   interpolate (NthChild x)                = ":nth-child(\{x})"
   interpolate (NthOfType x)               = ":nth-of-type(\#{x})"
   interpolate (NthLastChild x)            = ":nth-last-child(\#{x})"
