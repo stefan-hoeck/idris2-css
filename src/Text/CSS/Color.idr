@@ -29,6 +29,12 @@ transparent : Color
 transparent = RGBA 0 0 0 0
 
 export
+setTransparency : Percentage -> Color -> Color
+setTransparency t (RGBA r g b _) = RGBA r g b t
+setTransparency t (HSLA h s l _) = HSLA h s l t
+setTransparency t Current        = Current
+
+export
 Interpolation Color where
   interpolate (RGBA r g b a) = "rgba(\{show r},\{show g},\{show b},\{a})"
   interpolate (HSLA h s l a) = "hsla(\{show h},\{s},\{l},\{a})"
