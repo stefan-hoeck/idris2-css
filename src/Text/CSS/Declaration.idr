@@ -254,6 +254,10 @@ minWidth : Width -> Declaration
 minWidth = decl "min-width"
 
 export %inline
+opacity : Percentage -> Declaration
+opacity = decl "opacity"
+
+export %inline
 outlineColor : Color -> Declaration
 outlineColor = decl "outline-color"
 
