@@ -258,6 +258,10 @@ opacity : Percentage -> Declaration
 opacity = decl "opacity"
 
 export %inline
+outlineOffset : Length -> Declaration
+outlineOffset = decl "outline-offset"
+
+export %inline
 outlineColor : Color -> Declaration
 outlineColor = decl "outline-color"
 
