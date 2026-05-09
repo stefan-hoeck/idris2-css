@@ -388,3 +388,49 @@ solidBorder bw c =
 export
 roundedBorder : BorderWidth -> Color -> BorderRadius -> Declarations
 roundedBorder bw c r = borderRadius r :: solidBorder bw c
+
+parameters {default 0.5.em gap : Length}
+
+  ||| Flex container with a default gap between components that
+  ||| arranges components horizontally.
+  export
+  flexRow : Declarations
+  flexRow = [display Flex, flexDirection Row, columnGap gap]
+
+  ||| Like `flexRow` but aligns items at the start of the
+  ||| cross axis (vertially)
+  export
+  startRow : Declarations
+  startRow = alignItems Start :: flexRow
+
+  ||| Like `flexRow` but centers items along the cross axis (vertially)
+  export
+  centerRow : Declarations
+  centerRow = alignItems Center :: flexRow
+
+  ||| Like `flexRow` but stretches items along the cross axis (vertially)
+  export
+  stretchRow : Declarations
+  stretchRow = alignItems Stretch :: flexRow
+
+  ||| Flex container with a default gap between components that
+  ||| arranges components vertically.
+  export
+  flexColumn : Declarations
+  flexColumn = [display Flex, flexDirection Column, rowGap gap]
+
+  ||| Like `flexColumn` but aligns items at the start of the
+  ||| cross axis (horizontally)
+  export
+  startColumn : Declarations
+  startColumn = alignItems Start :: flexColumn
+
+  ||| Like `flexColumn` but centers items along the cross axis (horizontally)
+  export
+  centerColumn : Declarations
+  centerColumn = alignItems Center :: flexColumn
+
+  ||| Like `flexColumn` but stretches items along the cross axis (horizontally)
+  export
+  stretchColumn : Declarations
+  stretchColumn = alignItems Stretch :: flexColumn
