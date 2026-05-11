@@ -389,6 +389,14 @@ export
 roundedBorder : BorderWidth -> Color -> BorderRadius -> Declarations
 roundedBorder bw c r = borderRadius r :: solidBorder bw c
 
+export
+exactWidth : Width -> Declarations
+exactWidth w = [minWidth w, maxWidth w, width w]
+
+export
+exactHeight : Width -> Declarations
+exactHeight h = [minHeight h, maxHeight h, height h]
+
 parameters {default 0.5.em gap : Length}
 
   ||| Flex container with a default gap between components that
