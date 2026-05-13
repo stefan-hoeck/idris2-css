@@ -339,6 +339,10 @@ textOverflow2 : TextOverflow -> TextOverflow -> Declaration
 textOverflow2 x y = Decl "text-overflow" "\{x} \{y}"
 
 export %inline
+visibility : Visibility -> Declaration
+visibility = decl "visibility"
+
+export %inline
 width : Width -> Declaration
 width = decl "width"
 

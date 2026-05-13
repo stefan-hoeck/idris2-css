@@ -473,6 +473,17 @@ namespace Width
   Cast Percentage Width where
     cast = WP
 
+namespace Visibility
+
+  public export
+  data Visibility = Visible | Hidden | Collapse
+
+  export
+  Interpolation Visibility where
+    interpolate Visible  = "visible"
+    interpolate Hidden   = "hidden"
+    interpolate Collapse = "collapse"
+
 namespace WiteSpace
 
   ||| Handles white space inside an element
