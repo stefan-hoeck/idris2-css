@@ -290,6 +290,10 @@ outlineWidth : BorderWidth -> Declaration
 outlineWidth = decl "outline-width"
 
 export %inline
+overflow : Overflow -> Declaration
+overflow = decl "overflow"
+
+export %inline
 overflowX : Overflow -> Declaration
 overflowX = decl "overflow-x"
 
