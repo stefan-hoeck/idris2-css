@@ -102,6 +102,22 @@ borderRadius : BorderRadius -> Declaration
 borderRadius = decl "border-radius"
 
 export %inline
+borderTopLeftRadius : BorderRadius -> Declaration
+borderTopLeftRadius = decl "border-top-left-radius"
+
+export %inline
+borderTopRightRadius : BorderRadius -> Declaration
+borderTopRightRadius = decl "border-top-right-radius"
+
+export %inline
+borderBottomLeftRadius : BorderRadius -> Declaration
+borderBottomLeftRadius = decl "border-bottom-left-radius"
+
+export %inline
+borderBottomRightRadius : BorderRadius -> Declaration
+borderBottomRightRadius = decl "border-bottom-right-radius"
+
+export %inline
 borderStyle : Dir BorderStyle -> Declaration
 borderStyle = dirDecl2 "border" "style" interpolate
 
