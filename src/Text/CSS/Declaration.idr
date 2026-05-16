@@ -330,6 +330,10 @@ inset : Dir Pos -> Declaration
 inset = dirDecl "inset" interpolate
 
 export %inline
+resize : Resize -> Declaration
+resize = decl "resize"
+
+export %inline
 rowGap : Length -> Declaration
 rowGap = decl "row-gap"
 
