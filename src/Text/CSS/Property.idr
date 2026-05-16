@@ -417,6 +417,17 @@ namespace Ratio
   FromDouble Ratio where
     fromDouble = RD
 
+namespace Resize
+  public export
+  data Resize = None | Vertical | Horizontal | Both
+
+  export
+  Interpolation Resize where
+    interpolate None       = "none"
+    interpolate Vertical   = "vertical"
+    interpolate Horizontal = "horizontal"
+    interpolate Both       = "both"
+
 namespace TextAlign
   public export
   data TextAlign : Type where
