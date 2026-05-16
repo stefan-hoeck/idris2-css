@@ -365,6 +365,37 @@ namespace Overflow
     interpolate Scroll  = "scroll"
     interpolate Auto    = "auto"
 
+namespace Pos
+  public export
+  data Pos : Type where
+    PL       : Length -> Pos
+    PP       : Percentage -> Pos
+
+  export
+  Interpolation Pos where
+    interpolate (PL x)   = interpolate x
+    interpolate (PP x)   = interpolate x
+
+  export %inline
+  Cast Length Pos where
+    cast = PL
+
+  export %inline
+  Cast Percentage Pos where
+    cast = PP
+
+namespace Position
+  public export
+  data Position = Static | Relative | Absolute | Fixed | Sticky
+
+  export
+  Interpolation Position where
+    interpolate Static   = "static"
+    interpolate Relative = "relative"
+    interpolate Absolute = "absolute"
+    interpolate Fixed    = "fixed"
+    interpolate Sticky   = "sticky"
+
 namespace Ratio
   public export
   data Ratio : Type where
