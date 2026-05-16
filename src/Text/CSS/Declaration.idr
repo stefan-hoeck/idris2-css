@@ -306,6 +306,30 @@ padding : Dir Length -> Declaration
 padding = dirDecl "padding" interpolate
 
 export %inline
+position : Position -> Declaration
+position = decl "position"
+
+export %inline
+bottom : Pos -> Declaration
+bottom = decl "bottom"
+
+export %inline
+left : Pos -> Declaration
+left = decl "left"
+
+export %inline
+top : Pos -> Declaration
+top = decl "top"
+
+export %inline
+right : Pos -> Declaration
+right = decl "right"
+
+export %inline
+inset : Dir Pos -> Declaration
+inset = dirDecl "inset" interpolate
+
+export %inline
 rowGap : Length -> Declaration
 rowGap = decl "row-gap"
 
