@@ -428,6 +428,16 @@ namespace Resize
     interpolate Horizontal = "horizontal"
     interpolate Both       = "both"
 
+namespace ScrollbarGutter
+  public export
+  data ScrollbarGutter = Auto | Stable | BothEdges
+
+  export
+  Interpolation ScrollbarGutter where
+    interpolate Auto      = "auto"
+    interpolate Stable    = "stable"
+    interpolate BothEdges = "stable both-edges"
+
 namespace TextAlign
   public export
   data TextAlign : Type where
