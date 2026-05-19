@@ -343,6 +343,10 @@ stroke Nothing  = decl "stroke" "none"
 stroke (Just c) = decl "stroke" c
 
 export %inline
+scrollbarGutter : ScrollbarGutter -> Declaration
+scrollbarGutter = decl "scrollbar-gutter"
+
+export %inline
 strokeWidth : Width -> Declaration
 strokeWidth = decl "stroke-width"
 
